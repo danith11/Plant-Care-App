@@ -9,22 +9,27 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _emailController = TextEditingController(text: "test@test.com");
-  final _passwordController = TextEditingController(text: "1234");
+  final _emailController = TextEditingController(text: "eve.holt@reqres.in");
+  final _passwordController = TextEditingController(text: "cityslicka");
   bool _isLoading = false;
 
   void _login() async {
     setState(() => _isLoading = true);
-    final success = await Provider.of<AuthProvider>(context, listen: false)
-        .login(_emailController.text, _passwordController.text);
+    final success = await Provider.of<AuthProvider>(
+      context,
+      listen: false,
+    ).login(_emailController.text, _passwordController.text);
     setState(() => _isLoading = false);
 
     if (success) {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => HomeScreen()));
+        context,
+        MaterialPageRoute(builder: (_) => HomeScreen()),
+      );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login failed. Check credentials or network.')));
+        SnackBar(content: Text('Login failed. Check credentials or network.')),
+      );
     }
   }
 
@@ -40,13 +45,19 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 32),
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email', border: OutlineInputBorder()),
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
             ),
             SizedBox(height: 16),
             TextField(
               controller: _passwordController,
               obscureText: true,
-              decoration: InputDecoration(labelText: 'Password', border: OutlineInputBorder()),
+              decoration: InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+              ),
             ),
             SizedBox(height: 24),
             _isLoading
