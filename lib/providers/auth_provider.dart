@@ -1,11 +1,14 @@
-// import 'dart:convert';
+import 'dart:convert';
 import 'package:flutter/material.dart';
-// import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider with ChangeNotifier {
   bool _isAuthenticated = false;
   bool get isAuthenticated => _isAuthenticated;
+
+// This is a mockAPI . So thats why I hardcoded this here. 
+  final String _apiKey = "free_user_3CpqMm0sJC0FG2kjp3I7Ac6RzXv";
 
   Future<void> checkAuth() async {
     final prefs = await SharedPreferences.getInstance();
@@ -13,25 +16,62 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
-// Login
-Future<bool> login(String email, String password) async {
+  // Login
+  Future<bool> login(String email, String password) async {
+    try {
+      final response = await http.post(
+        Uri.parse('https://reqres.in/api/login'),
+        headers: {"Content-Type": "application/json", "x-api-key": _apiKey},
+        body: json.encode({"email": email.trim(), "password": password.trim()}),
+      );
 
-  if (email.trim() == "test@test.com" &&
-      password.trim() == "1234") {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('token', "dummy_token");
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('token', data['token']);
 
-    _isAuthenticated = true;
-    notifyListeners();
+        _isAuthenticated = true;
+        notifyListeners();
+        print("LOGIN SUCCESS");
+        return true;
+      }
 
-    print("LOGIN SUCCESS");
-    return true;
+      print("LOGIN FAILED: ${response.statusCode} - ${response.body}");
+      return false;
+    } catch (e) {
+      print("LOGIN ERROR: $e");
+      return false;
+    }
   }
 
-  print("LOGIN FAILED");
-  return false;
-}
+  Future<bool> register(String email, String password) async {
+    try {
+      final response = await http.post(
+        Uri.parse('https://reqres.in/api/register'),
+        headers: {"Content-Type": "application/json", "x-api-key": _apiKey},
+        body: json.encode({"email": email.trim(), "password": password.trim()}),
+      );
 
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('token', data['token']);
+
+        _isAuthenticated = true;
+        notifyListeners();
+        print("REGISTER SUCCESS");
+        return true;
+      }
+
+      print("REGISTER FAILED: ${response.statusCode} - ${response.body}");
+      return false;
+    } catch (e) {
+      print("REGISTER ERROR: $e");
+      return false;
+    }
+  }
+
+  // Logout
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('token');
