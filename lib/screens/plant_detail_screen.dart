@@ -18,7 +18,6 @@ class PlantDetailScreen extends StatelessWidget {
         );
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
         title: Text(currentPlant.name),
         backgroundColor: Colors.green,
@@ -27,7 +26,6 @@ class PlantDetailScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.edit),
             onPressed: () {
-              
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (_) => AddEditScreen(plant: currentPlant)),
@@ -49,9 +47,8 @@ class PlantDetailScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 250,
-              decoration: BoxDecoration(
-                color: Colors.green.shade100,
-                image: const DecorationImage(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
                   image :AssetImage('assets/images/plant_image.jpg'),
                   fit: BoxFit.cover,
                 ),
@@ -64,7 +61,7 @@ class PlantDetailScreen extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).cardColor, 
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(

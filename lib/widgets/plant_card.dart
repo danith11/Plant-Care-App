@@ -16,7 +16,7 @@ class PlantCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
@@ -45,7 +45,7 @@ class PlantCard extends StatelessWidget {
                     errorBuilder: (context, error, stackTrace) => Container(
                       height: 80,
                       width: 80,
-                      color: Colors.green.shade50,
+                      color: Theme.of(context).scaffoldBackgroundColor,
                       child: const Icon(Icons.eco, color: Colors.green),
                     ),
                   ),
@@ -57,18 +57,17 @@ class PlantCard extends StatelessWidget {
                     children: [
                       Text(
                         plant.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey.shade800,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         '${plant.type} • ${plant.wateringFrequency}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
-                          color: Colors.grey.shade600,
+                          color: Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -93,7 +92,7 @@ class PlantCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Icon(Icons.chevron_right, color: Colors.grey.shade400),
+                const Icon(Icons.chevron_right, color: Colors.grey),
               ],
             ),
           ),
@@ -102,3 +101,4 @@ class PlantCard extends StatelessWidget {
     );
   }
 }
+
