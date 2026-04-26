@@ -27,23 +27,23 @@ git clone https://github.com/danith11/Plant-Care-App.git
 ```
 2. **Open the folder:**
 ```bash
-    cd Plant_Care_App
+cd Plant_Care_App
 ```
 
 3. **Download the packages:**
 ```bash
-   flutter pub get
+flutter pub get
 ```
 
 4. **Run it on your phone or emulator:**
  ```bash
-   flutter run
+flutter run
 ```
 
 ## Note for Reviewers
 
 To make testing the app as easy as possible, the authentication system uses a hybrid approach:
 
-Login: Uses the live Reqres.in API to demonstrate real network requests. (Use the email  eve.holt@reqres.in and password cityslicka to test a successful login).
+Login: Uses the live Reqres.in API to demonstrate real network requests. (Use the email  eve.holt@reqres.in and password `cityslicka` to test a successful login).
 
 Signup: Uses a simulated network delay and generates a local token. This allows you to type any random name and email to test the app without being blocked by the strict Reqres user limits.
