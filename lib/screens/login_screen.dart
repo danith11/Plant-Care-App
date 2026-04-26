@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import 'home_screen.dart';
+import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -41,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.local_florist, size: 80, color: Colors.green),
+            Icon(Icons.eco, size: 80, color: Colors.green),
             SizedBox(height: 32),
             TextField(
               controller: _emailController,
@@ -70,6 +71,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: Text('Login'),
                   ),
+                  
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Don't have an account?"),
+                TextButton(
+                  onPressed: () {
+                    // Navigate to the Signup Screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => SignupScreen()),
+                    );
+                  },
+                  child: Text('Sign Up', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+            
           ],
         ),
       ),
