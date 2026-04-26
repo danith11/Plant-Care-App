@@ -12,7 +12,7 @@ A simple and beautiful Flutter app to help you track and take care of your plant
 * **Live Database:** Connects to MockAPI.io over the internet to save and load your plant data in real-time.
 * **Native App Feel:** Includes a custom app icon and a quick splash screen when you first open the app on your phone.
 
-## 🛠️ Built With
+## Built With
 
 * **Flutter & Dart** - App framework
 * **Provider** - Used to manage state for the Plants, Themes, and User Authentication
@@ -24,17 +24,24 @@ A simple and beautiful Flutter app to help you track and take care of your plant
 1. **Clone the project:**
 ```bash
 git clone [https://github.com/danith11/Plant-Care-App.git](https://github.com/danith11/Plant-Care-App.git)
-Open the folder:
+```
+2. **Open the folder:**
+```bash
     cd plant_care_app
+```
 
-Download the packages:
-    flutter pub get
+3. **Download the packages:**
+```bash
+   flutter pub get
+```
 
-Run it on your phone or emulator:
-    flutter run
+4. **Run it on your phone or emulator:**
+ ```bash
+   flutter run
+```
 
+## Note for Reviewers
 
-Note for Reviewers
 To make testing the app as easy as possible, the authentication system uses a hybrid approach:
 
 Login: Uses the live Reqres.in API to demonstrate real network requests. (Use an email like eve.holt@reqres.in to test a successful login).
