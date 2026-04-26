@@ -1,12 +1,12 @@
 class Plant {
-  String id;
+  String? id;
   String name;
   String type;
   String wateringFrequency;
   String status;
 
   Plant({
-    required this.id,
+    this.id,
     required this.name,
     required this.type,
     required this.wateringFrequency,
@@ -24,11 +24,17 @@ class Plant {
   }
 
   Map<String, dynamic> toJson() {
-    return {
+    final Map<String, dynamic> data = {
       'name': name,
       'type': type,
       'wateringFrequency': wateringFrequency,
       'status': status,
     };
+
+    if (id != null) {
+      data['id'] = id;
+    }
+
+    return data;
   }
 }
