@@ -1,7 +1,7 @@
 Markdown
 # Bloom Wise
 
-A simple and beautiful Flutter app to help you track and take care of your plant collection! 
+A simple and beautiful Flutter app to help you to take care of your plant collection! 
 
 ## Features
 
@@ -23,11 +23,11 @@ A simple and beautiful Flutter app to help you track and take care of your plant
 
 1. **Clone the project:**
 ```bash
-git clone [https://github.com/danith11/Plant-Care-App.git](https://github.com/danith11/Plant-Care-App.git)
+git clone https://github.com/danith11/Plant-Care-App.git
 ```
 2. **Open the folder:**
 ```bash
-    cd plant_care_app
+    cd Plant_Care_App
 ```
 
 3. **Download the packages:**
@@ -44,6 +44,6 @@ git clone [https://github.com/danith11/Plant-Care-App.git](https://github.com/da
 
 To make testing the app as easy as possible, the authentication system uses a hybrid approach:
 
-Login: Uses the live Reqres.in API to demonstrate real network requests. (Use an email like eve.holt@reqres.in to test a successful login).
+Login: Uses the live Reqres.in API to demonstrate real network requests. (Use the email  eve.holt@reqres.in and password cityslicka to test a successful login).
 
 Signup: Uses a simulated network delay and generates a local token. This allows you to type any random name and email to test the app without being blocked by the strict Reqres user limits.
