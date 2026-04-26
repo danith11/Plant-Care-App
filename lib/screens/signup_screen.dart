@@ -50,12 +50,13 @@ class _SignupScreenState extends State<SignupScreen> {
     final provider = Provider.of<AuthProvider>(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // 👈 Removed backgroundColor: Colors.white
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent, // 👈 Blends seamlessly with the background in both modes
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          // 👈 Automatically changes between black and white based on the Theme!
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).textTheme.bodyLarge?.color),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -80,7 +81,8 @@ class _SignupScreenState extends State<SignupScreen> {
                   Text(
                     'Join us and start caring for your plants',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 16, color: Colors.grey.shade600),
+                    // 👈 Swapped shade600 for standard grey so it looks good on both black and white
+                    style: const TextStyle(fontSize: 16, color: Colors.grey), 
                   ),
                   const SizedBox(height: 32),
                   
@@ -110,7 +112,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         return 'Please enter your email';
                       }
                       
-              
                       final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
                       
                       if (!emailRegex.hasMatch(value)) {

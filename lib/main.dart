@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_care_app/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/plant_provider.dart';
@@ -15,6 +16,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider.value(value: authProvider),
         ChangeNotifierProvider(create: (_) => PlantProvider()),
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
       child: MyApp(),
     ),
@@ -24,13 +26,13 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return MaterialApp(
       title: 'Plant Care Tracker',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        useMaterial3: true,
-      ),
+      theme: themeProvider.currentTheme,
       home: Consumer<AuthProvider>(
         builder: (context, auth, _) {
           return auth.isAuthenticated ? HomeScreen() : LoginScreen();
