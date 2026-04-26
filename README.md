@@ -1,4 +1,3 @@
-Markdown
 # Bloom Wise
 
 A simple and beautiful Flutter app to help you to take care of your plant collection! 
