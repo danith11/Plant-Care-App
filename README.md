@@ -1,17 +1,42 @@
-# plant_care_app
+Markdown
+# 🌿 Bloom Wise
 
-A new Flutter project.
+A simple and beautiful Flutter app to help you track and take care of your plant collection! 
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+* **Smart Login & Signup:** The Login screen connects to the real Reqres.in API. The Signup screen uses a simulated loading delay so you can easily create test accounts. Both screens use `SharedPreferences` to keep you logged in even after you close the app.
+* **Manage Your Plants:** Easily add new plants, update their watering schedules, or delete them (Full CRUD operations).
+* **Search & Filter:** Find the exact plant you are looking for by typing its name, or use the dropdown to filter by "Indoor" or "Outdoor".
+* **Dark Mode:** A custom settings tab lets you instantly switch the entire app between Light and Dark themes.
+* **Live Database:** Connects to MockAPI.io over the internet to save and load your plant data in real-time.
+* **Native App Feel:** Includes a custom app icon and a quick splash screen when you first open the app on your phone.
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Built With
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+* **Flutter & Dart** - App framework
+* **Provider** - Used to manage state for the Plants, Themes, and User Authentication
+* **HTTP** - Used to talk to the MockAPI and Reqres databases
+* **Shared Preferences** - Used to save the login token locally on the phone
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 How to Run the App
+
+1. **Clone the project:**
+```bash
+git clone [https://github.com/danith11/Plant-Care-App.git](https://github.com/danith11/Plant-Care-App.git)
+Open the folder:
+    cd plant_care_app
+
+Download the packages:
+    flutter pub get
+
+Run it on your phone or emulator:
+    flutter run
+
+
+📝 Note for Reviewers
+To make testing the app as easy as possible, the authentication system uses a hybrid approach:
+
+Login: Uses the live Reqres.in API to demonstrate real network requests. (Use an email like eve.holt@reqres.in to test a successful login).
+
+Signup: Uses a simulated network delay and generates a local token. This allows you to type any random name and email to test the app without being blocked by the strict Reqres user limits.
