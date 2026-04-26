@@ -1,9 +1,9 @@
 Markdown
-# 🌿 Bloom Wise
+# Bloom Wise
 
 A simple and beautiful Flutter app to help you track and take care of your plant collection! 
 
-## ✨ Features
+## Features
 
 * **Smart Login & Signup:** The Login screen connects to the real Reqres.in API. The Signup screen uses a simulated loading delay so you can easily create test accounts. Both screens use `SharedPreferences` to keep you logged in even after you close the app.
 * **Manage Your Plants:** Easily add new plants, update their watering schedules, or delete them (Full CRUD operations).
@@ -19,7 +19,7 @@ A simple and beautiful Flutter app to help you track and take care of your plant
 * **HTTP** - Used to talk to the MockAPI and Reqres databases
 * **Shared Preferences** - Used to save the login token locally on the phone
 
-## 🚀 How to Run the App
+## How to Run the App
 
 1. **Clone the project:**
 ```bash
@@ -34,7 +34,7 @@ Run it on your phone or emulator:
     flutter run
 
 
-📝 Note for Reviewers
+Note for Reviewers
 To make testing the app as easy as possible, the authentication system uses a hybrid approach:
 
 Login: Uses the live Reqres.in API to demonstrate real network requests. (Use an email like eve.holt@reqres.in to test a successful login).
